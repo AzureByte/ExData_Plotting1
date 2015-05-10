@@ -15,20 +15,20 @@ png("plot4.png", width = 480, height = 480)
 par(mfcol=c(2,2))
 
 ## Plot the first subplot
-plot(y=filteredData$Global_active_power, x=filteredData$datetime, ylab="Global Active Power (kilowatts)", xlab="", type="l")
+plot(y=filteredData$Global_active_power, x=filteredData$datetime, ylab="Global Active Power", xlab="", type="l")
 
 ## Plot the second subplot
-plot(y=filteredData$Voltage, x=filteredData$datetime, ylab="Voltage", xlab="datetime", type="l")
-
-## Plot the third subplot
 plot(y=filteredData$Sub_metering_1,x=filteredData$datetime, type = "n",xlab ="", ylab="Energy sub metering")
 lines(y=filteredData$Sub_metering_1,x=filteredData$datetime,col="black")
 lines(y=filteredData$Sub_metering_2,x=filteredData$datetime,col="red")
 lines(y=filteredData$Sub_metering_3,x=filteredData$datetime,col="blue")
 legend("topright",bty="n",lty="solid", col = c("black","red","blue"),legend=c("Sub_metering_1","Sub_metering_2","Sub_metering_3"))
 
+## Plot the third subplot
+plot(y=filteredData$Voltage, x=filteredData$datetime, ylab="Voltage", xlab="datetime", type="l")
+
 ## Plot the fourth subplot
-plot(filteredData$Global_reactive_power, x=filteredData$datetime, ylab="datetime",xlab="Global_reactive_power", type="l")
+plot(y=filteredData$Global_reactive_power, x=filteredData$datetime, xlab="datetime",ylab="Global_reactive_power", type="l")
 
 ## Flush the buffered contents to disk.
 dev.off()
