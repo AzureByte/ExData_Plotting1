@@ -9,6 +9,10 @@ filteredData   <- data[as.Date(strptime(paste(data$Date, data$Time), "%d/%m/%Y %
 png("plot3.png", width = 480, height = 480)
 
 ## Plot the required data
+plot(y=filteredData$Sub_metering_1,x=filteredData$datetime, type = "n",xlab ="", ylab="Energy sub metering")
+lines(y=filteredData$Sub_metering_1,x=filteredData$datetime,col="black")
+lines(y=filteredData$Sub_metering_2,x=filteredData$datetime,col="red")
+lines(y=filteredData$Sub_metering_3,x=filteredData$datetime,col="blue")
 legend("topright",lty="solid",col = c("black","red","blue"),legend=c("Sub_metering_1","Sub_metering_2","Sub_metering_3"))
 
 ## Flush the buffered contents to disk.
